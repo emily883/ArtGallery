@@ -1,0 +1,24 @@
+model User {
+    id  Int @id @default(autoincrement())
+    username String @unique
+    name String
+    email String @unique
+    password String
+    address User_address[]
+    admin Boolean @default(false)
+    orders Order?
+    createdAt DateTime @default(now())
+    updatedAt DateTime? @updatedAt
+}
+
+model Order{
+    id Int @id @default(autoincrement())
+    user User @relation(fields: [userId], references: [id])
+    userId Int
+}
+
+model User_address {
+    id Int @id @default(autoincrement())
+    user User @relation(fields: [user_id], references: [id])
+    user_id Int
+    }

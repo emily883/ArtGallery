@@ -1,0 +1,18 @@
+model User_address {
+    id  Int @id @default(autoincrement())
+    user  User @relation(fields: [user_id], references: [id])
+    user_id Int @unique
+    address_line1 String
+    address_line2 String?
+    city String
+    state String
+    zip String
+    country String
+    phone String 
+    is_default Boolean @default(value: false)
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    address User_address[]
+}

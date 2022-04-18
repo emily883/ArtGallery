@@ -1,0 +1,15 @@
+{
+    "mixers": [
+      {
+          "input": [
+              "./prisma/base.prisma",
+              "./prisma/user.prisma",
+              "./prisma/user_address.prisma",
+              "./prisma/art.prisma",
+              "./prisma/product_category.prisma",
+              "./prisma/orders.prisma"
+          ],
+          "output": "prisma/schema.prisma"
+      }
+    ]
+  }

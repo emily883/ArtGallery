@@ -1,0 +1,11 @@
+model art_images {
+    id Int @id @default(autoincrement())
+    image_url String
+    art Art @relation(fields: [art_id], references: [id])
+    art_id Int 
+}
+
+model Art {
+    id Int @id @default(autoincrement())
+    images   art_images[]
+}
