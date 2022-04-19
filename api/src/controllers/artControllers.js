@@ -12,6 +12,17 @@ Art.prototype.all = async () => {
   });
 };
 
+Art.prototype.get = async (id) => {
+  return await prisma.art.findUnique({
+    where: {
+      id: parseInt(`${id}`),
+    },
+    include: {
+      category: true,
+      images: true
+    }
+  })
+}
 
 
 module.exports = Art;

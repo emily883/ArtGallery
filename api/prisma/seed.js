@@ -115,16 +115,16 @@ async function main() {
 
   // encontrar un objeto
 
-  const getArt = await prisma.user.findUnique({
-    where: {
-      id: 32,
-    },
-    include: {
-      category: true,
-      images: true
-    }
-  })
-
+  // const getArt = await prisma.art.findUnique({
+  //   where: {
+  //     id: 32,
+  //   },
+  //   include: {
+  //     category: true,
+  //     images: true
+  //   }
+  // })
+  //  console.log(getArt);
 
 }
 

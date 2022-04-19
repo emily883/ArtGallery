@@ -18,7 +18,9 @@ const Navbar = () => {
           </SearchContainer> */}
         </Left>
         <Center>
+          <Link to="/">
           <Logo>LOGO.</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

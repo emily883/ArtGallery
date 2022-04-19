@@ -5,7 +5,7 @@ import Announcement from "../../components/Announcement/Announcement.jsx";
 // import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Container,
@@ -29,50 +29,30 @@ import {
 } from "./productStyling";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
+import { GetoneArt } from "../../redux/Actions/ArtActions.js";
 
 const Product = () => {
   const location = useLocation();
-  const id = location.pathname.split("/")[2];
+  const id = parseInt(location.pathname.split("/")[2]);
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
   const dispatch = useDispatch();
+  const { getArt } = useSelector((state) => state.ArtReducer);
 
-  //   useEffect(() => {
-  //     const getProduct = async () => {
-  //       try {
-  //         const res = await publicRequest.get("/products/find/" + id);
-  //         setProduct(res.data);
-  //       } catch {}
-  //     };
-  //     getProduct();
-  //   }, [id]);
+  useEffect(() => {
+    dispatch(GetoneArt(id));
+  }, [id]);
 
-  //   const handleQuantity = (type) => {
-  //     if (type === "dec") {
-  //       quantity > 1 && setQuantity(quantity - 1);
-  //     } else {
-  //       setQuantity(quantity + 1);
-  //     }
-  //   };
-
-  //   const handleClick = () => {
-  //     dispatch(
-  //       addProduct({ ...product, quantity, color, size })
-  //     );
-  //   };
   return (
     <Container>
-      <Navbar/>
+      <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src={getArt.images[0].image_url} />
         </ImgContainer>
         <InfoContainer>
-          <Title>titulo</Title>
-          <Desc>descripcion</Desc>
-          <Price>$ precio</Price>
+          <Title>{getArt.title}</Title>
+          <Desc>{getArt.description}</Desc>
+          <Price>$ {getArt.price}</Price>
           {/* <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -96,12 +76,11 @@ const Product = () => {
               <Add onClick={() => handleQuantity("inc")} /> */}
             </AmountContainer>
             {/* <Button onClick={handleClick}>ADD TO CART</Button> */}
-            <Button >ADD TO CART</Button>
+            <Button>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <Footer/>
-      
+      <Footer />
     </Container>
   );
 };
