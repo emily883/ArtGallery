@@ -104,30 +104,42 @@ const Button = styled.button`
   background-color: white;
   cursor: pointer;
   font-weight: 500;
+  margin-top: 10px;
 
   &:hover {
     background-color: #f8f4f4;
   }
 `;
 
+const ButtonAmount = styled.button`
+  background: transparent;
+  border: none;
+  transition: all 0.5 ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.5 ease;
+  }
+`;
 
 export {
-    Container,
-    Wrapper,
-    ImgContainer,
-    Image,
-    InfoContainer,
-    Title,
-    Desc,
-    Price,
-    FilterContainer,
-    Filter,
-    FilterTitle,
-    FilterColor,
-    FilterSize,
-    FilterSizeOption,
-    AddContainer,
-    AmountContainer,
-    Amount,
-    Button
-}
+  Container,
+  Wrapper,
+  ImgContainer,
+  Image,
+  InfoContainer,
+  Title,
+  Desc,
+  Price,
+  FilterContainer,
+  Filter,
+  FilterTitle,
+  FilterColor,
+  FilterSize,
+  FilterSizeOption,
+  AddContainer,
+  AmountContainer,
+  Amount,
+  Button,
+  ButtonAmount
+};

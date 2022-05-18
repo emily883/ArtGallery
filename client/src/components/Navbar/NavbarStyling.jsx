@@ -63,6 +63,17 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
+const AllProducts = styled.button`
+  background: none;
+  border: none;
+  transition: all 2s ease-in-out;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 2s ease-in-out;
+  }
+`;
+
 export {
   Container,
   Wrapper,
@@ -74,4 +85,5 @@ export {
   Logo,
   Right,
   MenuItem,
+  AllProducts,
 };
